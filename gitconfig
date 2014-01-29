@@ -1,0 +1,39 @@
+[user]
+	name = Bayo Erinle
+	email = berinle@gmail.com
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	plog = log --pretty=format:'%h %s'
+	lg = log --pretty=format:'%h %an : %ar - %s'
+	flog = log --pretty=format:\"%h %an, %ar : %s\"
+	lol = log --pretty=oneline --abbrev-commit --graph --decorate
+	gl = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar
+[color]
+	ui = true
+[mergetool]
+	keepBackup = true
+	prompt = false
+[core]
+	excludesfile = /Users/berinle/.gitignore_global
+	autocrlf = input
+	editor = /usr/bin/vim
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff -- \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff --merge --output $MERGED --base $BASE – $LOCAL $REMOTE
+	trustExitCode = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[merge]
+	tool = Kaleidoscope
